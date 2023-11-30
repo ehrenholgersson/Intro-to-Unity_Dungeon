@@ -8,12 +8,13 @@ public class Lock : MonoBehaviour
     [SerializeField] GameObject _green;
     [SerializeField] GameObject _blue;
     [SerializeField] Animator _door;
+    [SerializeField] GameObject _light;
 
     Animator _lid;
     // Start is called before the first frame update
     private void Start()
     {
-        _lid = GetComponent<Animator>();
+        _lid = GetComponentInChildren<Animator>();
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -31,6 +32,7 @@ public class Lock : MonoBehaviour
         {
             _lid?.Play("Open");
             _door?.Play("GateOpen");
+            _light?.SetActive(true);
         }
     }
 }
