@@ -9,6 +9,9 @@ public class Lock : MonoBehaviour
     [SerializeField] GameObject _blue;
     [SerializeField] Animator _door;
     [SerializeField] GameObject _light;
+    [SerializeField] AudioSource _audio;
+    [SerializeField] AudioClip _clip;
+    [SerializeField] GameObject _jewel;
 
     Animator _lid;
     // Start is called before the first frame update
@@ -30,9 +33,12 @@ public class Lock : MonoBehaviour
         }
         if (_red.activeSelf && _blue.activeSelf && _green.activeSelf)
         {
+            _jewel.SetActive(true);
             _lid?.Play("Open");
             _door?.Play("GateOpen");
             _light?.SetActive(true);
+            _audio?.PlayOneShot(_clip);
         }
     }
+    
 }
