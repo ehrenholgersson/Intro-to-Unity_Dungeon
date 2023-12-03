@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     CharacterController _player;
     NavMeshAgent _agent;
     bool _stop = false;
+    [SerializeField] GameObject _explosion;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +34,8 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        GameObject gO = Instantiate(_explosion);
+        gO.transform.position = transform.position;
         Destroy(gameObject);
     }
 
