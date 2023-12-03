@@ -17,7 +17,7 @@ public class Jewel : MonoBehaviour
         float timer = Time.time;
         while (Time.time < timer + 1) 
         { 
-            transform.position = Vector3.Lerp(startPos, startPos + new Vector3(0,2,0), Time.time - timer);
+            transform.position = Vector3.Lerp(startPos, startPos + new Vector3(0,1.7f,0), Time.time - timer);
             await Task.Delay(16);
         }
     }
